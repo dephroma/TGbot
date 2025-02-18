@@ -21,7 +21,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // Главное меню
 const mainMenu = Markup.keyboard([
-    ['📚 Каталог и бронирование', '🗓 Даты и цены'],
+    ['📚 каталог и бронирование', '🗓 Даты и цены'],
     ['💬 Часто задаваемые вопросы', '⬅️ Назад']
 ]).resize();
 
