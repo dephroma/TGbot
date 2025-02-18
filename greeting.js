@@ -1,5 +1,3 @@
-// greeting.js
-// greeting.js
 const { Markup } = require('telegraf');
 
 // Функция для отправки сообщения с задержкой
@@ -11,7 +9,7 @@ async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
 }
 
 // Приветственное сообщение и меню
-async function greetingHandler(bot) {
+async function greeting(bot) {
     bot.start(async (ctx) => {
     await sendMessageWithDelay(ctx, "Салам алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. \"железо\"), ваш виртуальный гид.🤖\n" + 
         "Помогу вам выбрать идеальный тур, отвечу на вопросы и оформлю заявку.\n\nЧем могу помочь?", 0,
