@@ -1,0 +1,5 @@
+
+
+[[edge_functions]]
+function = "startBot"
+path = "/.netlify/functions/bot"
