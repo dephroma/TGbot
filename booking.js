@@ -123,5 +123,3 @@ exports.faqHandler2 = async (ctx) => {
     const buttons = [['⬅ Назад']];
     await sendMessageWithDelay(ctx, "Если остались вопросы, не стесняйтесь обращаться!", 0, null, buttons);
 };
-
-module.exports = { booking };
