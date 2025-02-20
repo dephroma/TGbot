@@ -3,3 +3,7 @@
 [[edge_functions]]
 function = "startBot"
 path = "/.netlify/bot"
+
+[[edge_functions]]
+function = "show-data"
+path = "/test"
