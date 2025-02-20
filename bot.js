@@ -5,7 +5,7 @@ const {
     catalogHandler,
     datesPriceHandler,
     faqHandler
-} = require('./greeting.js');
+} = require('./greeting');
 const {
     enterHandler,
     paymentTermsHandler,
@@ -21,7 +21,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // Главное меню
 const mainMenu = Markup.keyboard([
-    ['📚 каталог и бронирование', '🗓 Даты и цены'],
+    ['📚 Каталог и бронирование', '🗓 Даты и цены'],
     ['💬 Часто задаваемые вопросы', '⬅️ Назад']
 ]).resize();
 
