@@ -1,21 +1,21 @@
 require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
-const {
-    greetingHandler,
-    catalogHandler,
-    datesPriceHandler,
-    faqHandler
-} = require('./greeting');
-const {
-    enterHandler,
-    paymentTermsHandler,
-    infoHandler,
-    bookingHandler,
-    datesHandler,
-    faqHandler2
-} = require('./booking');
-const { carousel1 } = require('./carousel1');
-const { carousel2 } = require('./carousel2');
+// const {
+//     greetingHandler,
+//     catalogHandler,
+//     datesPriceHandler,
+//     faqHandler
+// } = require('./greeting');
+// const {
+//     enterHandler,
+//     paymentTermsHandler,
+//     infoHandler,
+//     bookingHandler,
+//     datesHandler,
+//     faqHandler2
+// } = require('./booking');
+// const { carousel1 } = require('./carousel1');
+// const { carousel2 } = require('./carousel2');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
