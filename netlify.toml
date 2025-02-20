@@ -2,7 +2,7 @@
 
 [[edge_functions]]
 function = "startBot"
-path = "/.netlify/bot"
+path = "/.netlify/functions/bot"
 
 [[edge_functions]]
 function = "show-data"
