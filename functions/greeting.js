@@ -8,7 +8,7 @@ async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
     await ctx.reply(text, extra);
 }
 
-// Приветственное сообщение и меню
+//* Приветственное сообщение и меню
 async function greetingHandler(bot) {
     bot.start(async (ctx) => {
     await sendMessageWithDelay(ctx, "Салам алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. \"железо\"), ваш виртуальный гид.🤖\n" + 
