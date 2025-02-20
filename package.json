@@ -7,10 +7,10 @@
   },
   "name": "tgbot",
   "version": "1.0.0",
-  "main": "bot.js",
+  "main": "functions/bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node bot.js"
+      "start": "node functions/bot.js"
   },
   "keywords": [],
   "author": "",
