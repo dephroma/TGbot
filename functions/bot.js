@@ -20,15 +20,26 @@ const { carousel2 } = require('./carousel2');
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // Главное меню
-const mainMenu = Markup.keyboard([
-    ['📚 Каталог и бронирование', '🗓 Даты и цены'],
-    ['💬 Часто задаваемые вопросы', '⬅️ Назад']
-]).resize();
+// const mainMenu = Markup.keyboard([
+//     ['📚 Каталог и бронирование', '🗓 Даты и цены'],
+//     ['💬 Часто задаваемые вопросы', '⬅️ Назад']
+// ]).resize();
 
-// Обработчик команды /start
-bot.start(async (ctx) => {
-    await ctx.reply('Салам, вацок! Выбери действие:', mainMenu);
+// // Обработчик команды /start
+// bot.start(async (ctx) => {
+//     await ctx.reply('Салам, вацок! Выбери действие:', mainMenu);
+// });
+
+bot.start((ctx) => {
+    ctx.reply(
+        'Салам! Выбери, что тебя интересует:',
+        Markup.keyboard([
+            ['📚 Каталог и бронирование', '🗓 Даты и цены'],
+            ['💬 Часто задаваемые вопросы', '⬅️ Назад']
+        ]).resize()
+    );
 });
+
 
 // Обработчик сообщений
 bot.on('text', async (ctx) => {
