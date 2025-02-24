@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
 const {
-    greetingHandler,
     catalogHandler,
     datesPriceHandler,
     faqHandler
@@ -32,14 +31,18 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
     ctx.reply(
-        'Салам! Выбери, что тебя интересует:',
+        'Поздравляем вас с выбором экскурсии! 🚀\n\n' +
+        'Чтобы продолжить процесс бронирования и получить дополнительную информацию, вы можете воспользоваться кнопками ниже.\n\n' +
+        'Если у вас есть вопросы, не стесняйтесь обращаться к нам. Мы рады помочь! 😉',
         Markup.keyboard([
-            ['📚 Каталог и бронирование', '🗓 Даты и цены'],
-            ['💬 Часто задаваемые вопросы', '⬅️ Назад']
+            ['📚 Каталог и бронирование'],
+            ['🗓 Даты и цены'],
+            ['💬 Часто задаваемые вопросы']
         ]).resize()
     );
 });
 
+bot.hears('📚 Каталог и бронирование', catalogHandler);
 
 // Обработчик сообщений
 bot.on('text', async (ctx) => {
@@ -47,9 +50,7 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
 
-        if (['привет', 'начало', '↩️ назад', 'меня заинтересовал этот товар.'].includes(text)) {
-            await greetingHandler(ctx);
-        } else if (text === '📚 каталог и бронирование') {
+         if (text === '📚 каталог и бронирование') {
             await catalogHandler(ctx);
         } else if (text === '🌟 экскурсии на 1 день') {
             await carousel1(ctx);
@@ -81,3 +82,6 @@ bot.on('text', async (ctx) => {
 
 bot.launch();
 console.log('🤖 Бот для Telegram запущен!');
+
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));

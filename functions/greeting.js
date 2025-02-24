@@ -8,6 +8,16 @@ async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
     await ctx.reply(text, extra);
 }
 
+const catalogHandler = (ctx) => {
+    ctx.reply('Ознакомьтесь с нашим каталогом туров. У нас есть:\n\n' +
+         '🌟 Экскурсии на 1 день — отличная возможность подарить себе яркие впечатления и познакомиться с республикой за один день.\n' +
+         '✨ Многодневные туры — для тех, кто хочет отдохнуть душой, насладиться природой и открыть для себя весь колорит региона.', Markup.keyboard([
+            ['🌟 Экскурсии на 1 день'],
+            ['✨ Многодневные туры'],
+            ['🔙 Назад']
+    ]).resize());
+};
+
 // //! Приветственное сообщение и меню
 // async function greetingHandler(bot) {
 //     bot.start(async (ctx) => {
@@ -21,6 +31,7 @@ async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
 //         ]).resize()
 //     );
 // });
+
 
 // //? async function greetingHandler(ctx) {
 //     try {
@@ -61,4 +72,4 @@ async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
 // });
 
 
-module.exports = { greeting };
+module.exports = { catalogHandler };
