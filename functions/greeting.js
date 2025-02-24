@@ -18,6 +18,16 @@ const catalogHandler = (ctx) => {
     ]).resize());
 };
 
+const datesPriceHandler = (ctx) => {
+    ctx.reply('Здесь будет ссылка на актуальные даты поездок.\n\n' +
+         'Если ссылки в этом месяце нет, напишите желаемую дату тура при бронировании.\n\n' +
+         'Если ваша группа состоит из 4 человек или больше, вы сможете выбрать любую удобную дату тура и путешествовать только своей компанией. Ждём вас в захватывающем путешествии!', Markup.keyboard([
+            ['🌟 Экскурсии на 1 день'],
+            ['✨ Многодневные туры'],
+            ['🔙 Назад']
+    ]).resize());
+};
+
 // //! Приветственное сообщение и меню
 // async function greetingHandler(bot) {
 //     bot.start(async (ctx) => {
@@ -72,4 +82,4 @@ const catalogHandler = (ctx) => {
 // });
 
 
-module.exports = { catalogHandler };
+module.exports = { catalogHandler, datesPriceHandler };
