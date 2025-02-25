@@ -18,6 +18,23 @@ const { carousel2 } = require('./carousel2');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+exports.handler = async (event) => {
+    try {
+        const body = JSON.parse(event.body);
+        await bot.handleUpdate(body);
+        return {
+            statusCode: 200,
+            body: 'OK'
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            statusCode: 500,
+            body: 'Error'
+        };
+    }
+};
+
 bot.start((ctx) => {
     ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
     caption: 
