@@ -18,28 +18,17 @@ const { carousel2 } = require('./carousel2');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-// Главное меню
-// const mainMenu = Markup.keyboard([
-//     ['📚 Каталог и бронирование', '🗓 Даты и цены'],
-//     ['💬 Часто задаваемые вопросы', '⬅️ Назад']
-// ]).resize();
-
-// // Обработчик команды /start
-// bot.start(async (ctx) => {
-//     await ctx.reply('Салам, вацок! Выбери действие:', mainMenu);
-// });
-
 bot.start((ctx) => {
-    ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045');
-    ctx.reply(
-        'Саламм алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. \"железо\"), ваш виртуальный гид.🤖\n' + 
+    ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
+    caption: 
+        'Салам алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. \"железо\"), ваш виртуальный гид.🤖\n' + 
         'Помогу вам выбрать идеальный тур, отвечу на вопросы и оформлю заявку.\n\nЧем могу помочь?',
-        Markup.keyboard([
+        reply_markup: Markup.keyboard([
             ['📚 Каталог и бронирование'],
             ['🗓 Даты и цены'],
             ['💬 Часто задаваемые вопросы']
         ]).resize()
-    );
+    });
 });
 
 bot.hears('📚 Каталог и бронирование', catalogHandler);
