@@ -24,12 +24,12 @@ const bot = new Telegraf(BOT_TOKEN);
 const app = express();
 app.use(express.json());
 
-exports.handler = async (event) => {
+exports.handler = async function (event, context) {
     return {
-      statusCode: 200,
-      body: "Hello, World!",
+        statusCode: 200,
+        body: "Hello Netlify!",
     };
-  };
+};
 
 // Настройка webhook для получения обновлений
 app.post(`/${BOT_TOKEN}`, (req, res) => {
