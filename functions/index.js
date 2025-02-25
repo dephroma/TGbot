@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const {
     catalogHandler,
-    datesPriceHandler,
+    datesPriceHandler
     // faqHandler
 } = require('./greeting');
 // const {
@@ -14,8 +14,8 @@ const {
 //     datesHandler,
 //     faqHandler2
 // } = require('./booking');
-const { carousel1 } = require('./carousel1');
-const { carousel2 } = require('./carousel2');
+// const { carousel1 } = require('./carousel1');
+// const { carousel2 } = require('./carousel2');
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
