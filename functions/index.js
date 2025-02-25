@@ -51,7 +51,7 @@ app.post(`/${BOT_TOKEN}`, (req, res) => {
   app.listen(PORT, async () => {
     console.log(`Сервер работает на порту ${PORT}`);
     // Устанавливаем webhook для бота
-    await bot.telegram.setWebhook(`https://ТВОЙ_URL/${BOT_TOKEN}`);
+    await bot.telegram.setWebhook(`https://tgeagle.netlify.app/${BOT_TOKEN}`);
   });
 
 bot.start((ctx) => {
