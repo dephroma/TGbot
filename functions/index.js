@@ -4,16 +4,16 @@ require('dotenv').config();
 const {
     catalogHandler,
     datesPriceHandler,
-    faqHandler
+    // faqHandler
 } = require('./greeting');
-const {
-    enterHandler,
-    paymentTermsHandler,
-    infoHandler,
-    bookingHandler,
-    datesHandler,
-    faqHandler2
-} = require('./booking');
+// const {
+//     enterHandler,
+//     paymentTermsHandler,
+//     infoHandler,
+//     bookingHandler,
+//     datesHandler,
+//     faqHandler2
+// } = require('./booking');
 const { carousel1 } = require('./carousel1');
 const { carousel2 } = require('./carousel2');
 
