@@ -18,6 +18,7 @@ const {
 const { carousel1 } = require('./carousel1');
 const { carousel2 } = require('./carousel2');
 
+const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const app = express();
