@@ -19,46 +19,33 @@ const { carousel1 } = require('./carousel1');
 const { carousel2 } = require('./carousel2');
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(BOT_TOKEN);
 
 const app = express();
 app.use(express.json());
-
-exports.handler = async (event) => {
-    try {
-        const body = JSON.parse(event.body);
-        await bot.handleUpdate(body);
-        return {
-            statusCode: 200,
-            body: 'OK'
-        };
-    } catch (error) {
-        console.error(error);
-        return {
-            statusCode: 500,
-            body: 'Error'
-        };
-    }
-};
 
 // Настройка webhook для получения обновлений
 app.post(`/${BOT_TOKEN}`, (req, res) => {
     bot.handleUpdate(req.body);
     res.sendStatus(200);
-  });
-  
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, async () => {
-    console.log(`Сервер работает на порту ${PORT}`);
-    // Устанавливаем webhook для бота
-    await bot.telegram.setWebhook(`https://tgeagle.netlify.app/${BOT_TOKEN}`);
-  });
+});
 
+// Устанавливаем webhook для бота на Netlify
+app.listen(process.env.PORT || 3000, async () => {
+    console.log('Сервер работает на порту 3000');
+    try {
+        await bot.telegram.setWebhook(`https://tgeagle.netlify.app/${BOT_TOKEN}`);
+        console.log('Webhook успешно настроен!');
+    } catch (error) {
+        console.error('Ошибка при установке webhook:', error);
+    }
+});
+
+// Обработчик стартовой команды
 bot.start((ctx) => {
     ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
-    caption: 
-        'Салам алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. \"железо\"), ваш виртуальный гид.🤖\n' + 
-        'Помогу вам выбрать идеальный тур, отвечу на вопросы и оформлю заявку.\n\nЧем могу помочь?',
+        caption: 'Салам алейкум, дорогой путешественник!👋\n\nЯ — Тимур (от тюрк. "железо"), ваш виртуальный гид.🤖\n' +
+            'Помогу вам выбрать идеальный тур, отвечу на вопросы и оформлю заявку.\n\nЧем могу помочь?',
         reply_markup: Markup.keyboard([
             ['📚 Каталог и бронирование'],
             ['🗓 Даты и цены'],
@@ -76,7 +63,7 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
 
-         if (text === '📚 каталог и бронирование') {
+        if (text === '📚 каталог и бронирование') {
             await catalogHandler(ctx);
         } else if (text === '🌟 экскурсии на 1 день') {
             await carousel1(ctx);
@@ -106,8 +93,7 @@ bot.on('text', async (ctx) => {
     }
 });
 
-bot.launch();
-console.log('🤖 Бот для Telegram запущен!');
-
+// Останавливаем бота при получении сигнала SIGINT и SIGTERM
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
