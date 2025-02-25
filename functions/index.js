@@ -34,7 +34,7 @@ app.post(`/${BOT_TOKEN}`, (req, res) => {
 app.listen(process.env.PORT || 3000, async () => {
     console.log('Сервер работает на порту 3000');
     try {
-        await bot.telegram.setWebhook('https://tgeagle.netlify.app/.netlify/functions/bot');
+        await bot.telegram.setWebhook('https://tgeagle.netlify.app/.netlify/functions/index');
         console.log('Webhook успешно настроен!');
     } catch (error) {
         console.error('Ошибка при установке webhook:', error);
