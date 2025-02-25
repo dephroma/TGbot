@@ -34,7 +34,7 @@ app.post(`/${BOT_TOKEN}`, (req, res) => {
 app.listen(process.env.PORT || 3000, async () => {
     console.log('Сервер работает на порту 3000');
     try {
-        await bot.telegram.setWebhook(`https://tgeagle.netlify.app/${BOT_TOKEN}`);
+        await bot.telegram.setWebhook(`tgeagle.netlify.app/${BOT_TOKEN}`);
         console.log('Webhook успешно настроен!');
     } catch (error) {
         console.error('Ошибка при установке webhook:', error);
@@ -96,4 +96,3 @@ bot.on('text', async (ctx) => {
 // Останавливаем бота при получении сигнала SIGINT и SIGTERM
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
-
