@@ -1,5 +1,7 @@
-require('dotenv').config();
 const { Telegraf, Markup } = require('telegraf');
+const express = require('express');
+require('dotenv').config();
+
 const {
     catalogHandler,
     datesPriceHandler,
@@ -18,6 +20,9 @@ const { carousel2 } = require('./carousel2');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+const app = express();
+app.use(express.json());
+
 exports.handler = async (event) => {
     try {
         const body = JSON.parse(event.body);
@@ -34,6 +39,19 @@ exports.handler = async (event) => {
         };
     }
 };
+
+// Настройка webhook для получения обновлений
+app.post(`/${BOT_TOKEN}`, (req, res) => {
+    bot.handleUpdate(req.body);
+    res.sendStatus(200);
+  });
+  
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, async () => {
+    console.log(`Сервер работает на порту ${PORT}`);
+    // Устанавливаем webhook для бота
+    await bot.telegram.setWebhook(`https://ТВОЙ_URL/${BOT_TOKEN}`);
+  });
 
 bot.start((ctx) => {
     ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
