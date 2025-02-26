@@ -36,7 +36,7 @@ bot.start((ctx) => {
 });
 
 // Обработчики команд
-bot.hears('Привет', '/start', greetingHandler);
+// bot.hears('Привет', '/start', greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 // bot.hears('💬 Часто задаваемые вопросы', faqHandler);
