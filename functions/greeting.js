@@ -51,7 +51,7 @@ const datesPriceHandler = (ctx) => {
 const faqHandler = async (ctx) => { // Добавляем async
     try {
         // Используем прямую ссылку на изображение
-        await ctx.replyWithPhoto('https://i.imgur.com/rNUOwRG.jpg');
+        await ctx.replyWithPhoto('https://imgur.com/rNUOwRG.jpg');
     } catch (error) {
         console.error('Ошибка при загрузке фото:', error);
         await ctx.reply('Приветственное фото временно недоступно, но это не помешает нам начать! 😊');
