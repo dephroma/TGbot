@@ -27,7 +27,7 @@ bot.start(greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
-bot.hears('Привет', 'йц', greetingHandler);
+bot.hears('\u{21a9} Назад', greetingHandler);
 
 // Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
