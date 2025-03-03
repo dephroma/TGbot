@@ -4,8 +4,8 @@ require('dotenv').config();
 const {
     // greetingHandler,
     catalogHandler,
-    datesPriceHandler
-    // faqHandler
+    datesPriceHandler,
+    faqHandler
 } = require('./greeting');
 // const {
 //     enterHandler,
@@ -42,7 +42,7 @@ bot.start(async (ctx) => {
 // bot.hears('Привет', '/start', greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
-// bot.hears('💬 Часто задаваемые вопросы', faqHandler);
+bot.hears('💬 Часто задаваемые вопросы', faqHandler);
 
 // Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
@@ -51,27 +51,27 @@ bot.on('text', async (ctx) => {
         console.log('Получено сообщение:', text);
 
         if (text === '📚 каталог и бронирование') {
-            await catalogHandler(ctx);
-        } else if (text === '🌟 экскурсии на 1 день') {
-            await carousel1(ctx);
-        } else if (text === '✨ многодневные туры') {
-            await carousel2(ctx);
-        } else if (text === '🗓 даты и цены') {
-            await datesPriceHandler(ctx);
-        } else if (text === '💬 часто задаваемые вопросы') {
-            await faqHandler(ctx);
-        } else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
-            await enterHandler(ctx);
-        } else if (text === '💰 условия оплаты и бронирование') {
-            await paymentTermsHandler(ctx);
-        } else if (text === '📌 информация о туре') {
-            await infoHandler(ctx);
-        } else if (text === '💵 забронировать') {
-            await bookingHandler(ctx);
-        } else if (text === '📅 даты туров') {
-            await datesHandler(ctx);
-        } else if (text === '❓ часто задаваемые вопросы') {
-            await faqHandler2(ctx);
+            await catalogHandler2(ctx);
+        // } else if (text === '🌟 экскурсии на 1 день') {
+        //     await carousel1(ctx);
+        // } else if (text === '✨ многодневные туры') {
+        //     await carousel2(ctx);
+        // } else if (text === '🗓 даты и цены') {
+        //     await datesPriceHandler(ctx);
+        // } else if (text === '💬 часто задаваемые вопросы') {
+        //     await faqHandler(ctx);
+        // } else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
+        //     await enterHandler(ctx);
+        // } else if (text === '💰 условия оплаты и бронирование') {
+        //     await paymentTermsHandler(ctx);
+        // } else if (text === '📌 информация о туре') {
+        //     await infoHandler(ctx);
+        // } else if (text === '💵 забронировать') {
+        //     await bookingHandler(ctx);
+        // } else if (text === '📅 даты туров') {
+        //     await datesHandler(ctx);
+        // } else if (text === '❓ часто задаваемые вопросы') {
+        //     await faqHandler2(ctx);
         } else {
             await ctx.reply('Я не понял ваш запрос. Выберите вариант из меню или дождитесь ответа администратора.');
         }
