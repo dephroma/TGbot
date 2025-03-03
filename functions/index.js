@@ -39,8 +39,8 @@ bot.on('text', async (ctx) => {
             await datesPriceHandler(ctx);}
          else if (text === 'блэд') {
             await datesPriceHandler(ctx);}
-        else if (/знакомство/i.test(text) || /дагазтания/i.test(text)) {
-            await datesPriceHandler(ctx);}
+        // else if (/знакомство/i.test(text) || /дагазтания/i.test(text)) {
+        //     await datesPriceHandler(ctx);}
 
         // } else if (text === '✨ многодневные туры') {
         //     await carousel2(ctx);
