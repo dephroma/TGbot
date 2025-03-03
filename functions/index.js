@@ -26,7 +26,7 @@ bot.start(greetingHandler);
 
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
-bot.hears('💬 Часто задаваемые вопросы', faqHandler);
+bot.hears('💬 Часто задаваемые вопросы', 'afa', faqHandler);
 bot.hears('🔙 Назад', greetingHandler);
 
 // Обработчик текстовых сообщений
