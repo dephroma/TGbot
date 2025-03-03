@@ -34,22 +34,22 @@ bot.on('text', async (ctx) => {
     try {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
-
-        if (ctx.message.text.includes('вопрос')) {
-            faqHandler(ctx);                            //? INCLUDES
-          }
-        // } else if (text === '🌟 экскурсии на 1 день') {
-        //     await carousel1(ctx);
+        
+         if (text === 'блинкен') {
+            await datesPriceHandler(ctx);}
+         else if (text === 'блэд') {
+            await datesPriceHandler(ctx);}
+        // if (ctx.message.text.includes('вопрос')) {
+        //     faqHandler(ctx);                            //? INCLUDES
+        //   }
         // } else if (text === '✨ многодневные туры') {
         //     await carousel2(ctx);
         // } else if (text === '🗓 даты и цены') {
         //     await datesPriceHandler(ctx);
         // } else if (text === '💬 часто задаваемые вопросы') {
         //     await faqHandler(ctx);
-        // } else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
-        //     await enterHandler(ctx);
-        // } else if (text === '💰 условия оплаты и бронирование') {
-        //     await paymentTermsHandler(ctx);
+         else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
+            await datesPriceHandler(ctx);}
         // } else if (text === '📌 информация о туре') {
         //     await infoHandler(ctx);
         // } else if (text === '💵 забронировать') {
