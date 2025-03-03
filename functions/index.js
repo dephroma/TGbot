@@ -24,15 +24,6 @@ const bot = new Telegraf(BOT_TOKEN);
 // Обработчик стартовой команды
 bot.start(greetingHandler);
 
-// Обработчик для кнопок
-bot.on('text', async (ctx) => {
-    const text = ctx.message.text.trim();
-    if (text === '🔙 Назад') {
-        await greetingHandler(ctx);
-    } else {
-        // Здесь другие обработчики для других текстов
-    }
-});
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
