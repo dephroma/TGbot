@@ -25,7 +25,7 @@ const bot = new Telegraf(BOT_TOKEN);
 bot.start(greetingHandler);
 
 // Обработчики команд
-bot.hears('Привет', '/start', '🔙 Назад', greetingHandler);
+bot.hears('Привет', '🔙 Назад', greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
