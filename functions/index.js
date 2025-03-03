@@ -2,7 +2,7 @@ const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
 const {
-    // greetingHandler,
+    greetingHandler,
     catalogHandler,
     datesPriceHandler,
     faqHandler
@@ -22,24 +22,10 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
 
 // Обработчик стартовой команды
-bot.start(async (ctx) => {
-    await ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045');
-
-    await ctx.reply(
-        'Салам алейкум, дорогой путешественник!👋\n\n' +
-        'Я — Тимур (от тюрк. "железо"), ваш виртуальный гид.🤖\n' +
-        'Помогу вам выбрать идеальный тур, отвечу на вопросы и оформлю заявку.\n\n' +
-        'Чем могу помочь?',
-        Markup.keyboard([
-            ['📚 Каталог и бронирование'],
-            ['🗓 Даты и цены'],
-            ['💬 Часто задаваемые вопросы']
-        ]).resize()
-    );
-});
+bot.start(greetingHandler);
 
 // Обработчики команд
-// bot.hears('Привет', '/start', greetingHandler);
+bot.hears('Привет', '/start', '🔙 Назад', greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
