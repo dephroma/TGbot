@@ -41,17 +41,15 @@ bot.on('text', async (ctx) => {
             await datesPriceHandler(ctx);}
         else if (/знакомство/i.test(text) || /дагазтания/i.test(text)) {
             await datesPriceHandler(ctx);}
-        // if (ctx.message.text.includes('вопрос')) {
-        //     faqHandler(ctx);                            //? INCLUDES
-        //   }
+
         // } else if (text === '✨ многодневные туры') {
         //     await carousel2(ctx);
         // } else if (text === '🗓 даты и цены') {
         //     await datesPriceHandler(ctx);
         // } else if (text === '💬 часто задаваемые вопросы') {
         //     await faqHandler(ctx);
-        //  else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
-        //     await datesPriceHandler(ctx);}
+         else if (['знакомство'|| '⬅️ назад' || '🛡 перейти к бронированию'].includes(text)) {
+            await catalogHandler(ctx);}
         // } else if (text === '📌 информация о туре') {
         //     await infoHandler(ctx);
         // } else if (text === '💵 забронировать') {
