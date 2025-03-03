@@ -35,8 +35,9 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
 
-        if (text === 'привед') {
-            await catalogHandler2(ctx);
+        if (ctx.message.text.includes('вопрос')) {
+            faqHandler(ctx);                            //? INCLUDES
+          }
         // } else if (text === '🌟 экскурсии на 1 день') {
         //     await carousel1(ctx);
         // } else if (text === '✨ многодневные туры') {
@@ -57,7 +58,7 @@ bot.on('text', async (ctx) => {
         //     await datesHandler(ctx);
         // } else if (text === '❓ часто задаваемые вопросы') {
         //     await faqHandler2(ctx);
-        } else {
+        else {
             await ctx.reply('Я не понял ваш запрос. Выберите вариант из меню или дождитесь ответа администратора.');
         }
     } catch (error) {
