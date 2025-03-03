@@ -39,6 +39,8 @@ bot.on('text', async (ctx) => {
             await datesPriceHandler(ctx);}
          else if (text === 'блэд') {
             await datesPriceHandler(ctx);}
+        else if (/знакомство/i.test(text) || /дагазтания/i.test(text)) {
+            await datesPriceHandler(ctx);}
         // if (ctx.message.text.includes('вопрос')) {
         //     faqHandler(ctx);                            //? INCLUDES
         //   }
@@ -48,8 +50,8 @@ bot.on('text', async (ctx) => {
         //     await datesPriceHandler(ctx);
         // } else if (text === '💬 часто задаваемые вопросы') {
         //     await faqHandler(ctx);
-         else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
-            await datesPriceHandler(ctx);}
+        //  else if (['знакомство', '⬅️ назад', '🛡 перейти к бронированию'].includes(text)) {
+        //     await datesPriceHandler(ctx);}
         // } else if (text === '📌 информация о туре') {
         //     await infoHandler(ctx);
         // } else if (text === '💵 забронировать') {
