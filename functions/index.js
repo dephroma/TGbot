@@ -27,7 +27,7 @@ bot.start(greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
-bot.hears('Привет', greetingHandler);
+bot.hears('Привет', '🔙 Назад', greetingHandler);
 
 // Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
@@ -35,7 +35,7 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
 
-        if (text === '📚 каталог и бронирование') {
+        if (text === 'привет') {
             await catalogHandler2(ctx);
         // } else if (text === '🌟 экскурсии на 1 день') {
         //     await carousel1(ctx);
