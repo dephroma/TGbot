@@ -35,12 +35,12 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
         
-         if (text === 'блинкен') {
+         if (/дат/i.test(text) || /цен/i.test(text)) {
             await datesPriceHandler(ctx);}
-         else if (text === 'блэд') {
-            await datesPriceHandler(ctx);}
-        // else if (/знакомство/i.test(text) || /дагазтания/i.test(text)) {
-        //     await datesPriceHandler(ctx);}
+         else if (/каталог/i.test(text) || /туры/i.test(text)) {
+            await catalogHandler(ctx);}
+        else if (/вопрос/i.test(text) || /спросить/i.test(text)) {
+            await faqHandler(ctx);}
 
         // } else if (text === '✨ многодневные туры') {
         //     await carousel2(ctx);
@@ -48,8 +48,6 @@ bot.on('text', async (ctx) => {
         //     await datesPriceHandler(ctx);
         // } else if (text === '💬 часто задаваемые вопросы') {
         //     await faqHandler(ctx);
-         else if (['знакомство'|| '⬅️ назад' || '🛡 перейти к бронированию'].includes(text)) {
-            await catalogHandler(ctx);}
         // } else if (text === '📌 информация о туре') {
         //     await infoHandler(ctx);
         // } else if (text === '💵 забронировать') {
