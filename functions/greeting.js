@@ -1,12 +1,12 @@
 const { Markup } = require('telegraf');
 
-//! Функция для отправки сообщения с задержкой
-async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
-    if (delay > 0) {
-        await new Promise(resolve => setTimeout(resolve, delay));
-    }
-    await ctx.reply(text, extra);
-}
+// //! Функция для отправки сообщения с задержкой
+// async function sendMessageWithDelay(ctx, text, delay = 0, extra = {}) {
+//     if (delay > 0) {
+//         await new Promise(resolve => setTimeout(resolve, delay));
+//     }
+//     await ctx.reply(text, extra);
+// }
 // //! Приветственное сообщение и меню
 const greetingHandler = (async (ctx) => {
     try {
