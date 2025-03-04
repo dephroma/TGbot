@@ -15,8 +15,7 @@ const {
 //     datesHandler,
 //     faqHandler2
 // } = require('./booking');
-const { excurses } = require('./excurses');
-// const { carousel2 } = require('./carousel2');
+const { excurses, tours } = require('./products');
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
@@ -29,6 +28,7 @@ bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
 bot.hears(['🔙 Назад','привет'], greetingHandler);
 bot.hears('🌟 Экскурсии на 1 день', excurses);
+bot.hears('✨ Многодневные туры', tours);
 
 // Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
