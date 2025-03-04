@@ -1,25 +1,25 @@
-const { Telegraf, Markup } = require('telegraf');
+const { Markup } = require('telegraf');
 
-//* Функция для отправки сообщения с задержкой
-async function sendMessageWithDelay(ctx, message, delay = 0, photo = null, buttons = null) {
-    if (delay > 0) {
-        await new Promise(resolve => setTimeout(resolve, delay));
-    }
-    const options = {
-        caption: message,
-        reply_markup: buttons ? Markup.keyboard(buttons).one_time().resize().extra() : undefined
-    };
-    if (photo) {
-        await ctx.replyWithPhoto(photo, options);
-    } else {
-        await ctx.reply(message, options);
-    }
-}
+// //* Функция для отправки сообщения с задержкой
+// async function sendMessageWithDelay(ctx, message, delay = 0, photo = null, buttons = null) {
+//     if (delay > 0) {
+//         await new Promise(resolve => setTimeout(resolve, delay));
+//     }
+//     const options = {
+//         caption: message,
+//         reply_markup: buttons ? Markup.keyboard(buttons).one_time().resize().extra() : undefined
+//     };
+//     if (photo) {
+//         await ctx.replyWithPhoto(photo, options);
+//     } else {
+//         await ctx.reply(message, options);
+//     }
+// }
 
-//* Функция для создания клавиатуры
-function createKeyboard(buttons) {
-    return Markup.keyboard(buttons).one_time().resize().extra();
-}
+// //* Функция для создания клавиатуры
+// function createKeyboard(buttons) {
+//     return Markup.keyboard(buttons).one_time().resize().extra();
+// }
 
 //! Приветственное сообщение и меню
 exports.enterHandler = async (ctx) => {

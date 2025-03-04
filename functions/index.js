@@ -15,7 +15,7 @@ const {
 //     datesHandler,
 //     faqHandler2
 // } = require('./booking');
-// const { carousel1 } = require('./carousel1');
+const { excurses } = require('./excurses');
 // const { carousel2 } = require('./carousel2');
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
@@ -28,6 +28,7 @@ bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
 bot.hears(['🔙 Назад','привет'], greetingHandler);
+bot.hears('🌟 Экскурсии на 1 день', excurses);
 
 // Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
