@@ -1,17 +1,5 @@
 const { Markup } = require('telegraf');
 
-// // Создаем кнопки
-// const createButton = (label, url = null, callbackData = null) => {
-//     const button = { text: label };
-//     if (url) {
-//         button.url = url;
-//     }
-//     if (callbackData) {
-//         button.callback_data = callbackData;
-//     }
-//     return button;
-// };
-
 const excurses = async (ctx) => {
     try { await ctx.replyWithMediaGroup([
         {
