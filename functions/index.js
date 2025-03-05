@@ -20,7 +20,7 @@ const { excurses, tours } = require('./products');
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
 
-// Обработчик стартовой команды
+//* Обработчик стартовой команды
 bot.start(greetingHandler);
 
 bot.hears('📚 Каталог и бронирование', catalogHandler);
@@ -30,7 +30,7 @@ bot.hears(['🔙 Назад','привет'], greetingHandler);
 bot.hears('🌟 Экскурсии на 1 день', excurses);
 bot.hears('✨ Многодневные туры', tours);
 
-// Обработчик текстовых сообщений
+//* Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
     try {
         const text = ctx.message.text.trim().toLowerCase();
@@ -42,21 +42,6 @@ bot.on('text', async (ctx) => {
             await catalogHandler(ctx);}
         else if (/вопрос/i.test(text) || /спросить/i.test(text)) {
             await faqHandler(ctx);}
-
-        // } else if (text === '✨ многодневные туры') {
-        //     await carousel2(ctx);
-        // } else if (text === '🗓 даты и цены') {
-        //     await datesPriceHandler(ctx);
-        // } else if (text === '💬 часто задаваемые вопросы') {
-        //     await faqHandler(ctx);
-        // } else if (text === '📌 информация о туре') {
-        //     await infoHandler(ctx);
-        // } else if (text === '💵 забронировать') {
-        //     await bookingHandler(ctx);
-        // } else if (text === '📅 даты туров') {
-        //     await datesHandler(ctx);
-        // } else if (text === '❓ часто задаваемые вопросы') {
-        //     await faqHandler2(ctx);
         else {
             await ctx.reply('Я не понял ваш запрос. Выберите вариант из меню или дождитесь ответа администратора.');
         }
@@ -65,7 +50,7 @@ bot.on('text', async (ctx) => {
     }
 });
 
-// Обработчик для webhook
+//* Обработчик для webhook
 exports.handler = async (event, context) => {
     const body = JSON.parse(event.body);  // Получаем тело запроса
     try {
