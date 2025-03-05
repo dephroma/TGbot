@@ -63,6 +63,12 @@ const datesPriceHandler = (ctx) => {
             ['✨ Многодневные туры'],
             ['🔙 Назад']
     ]).resize());
+
+        // Закрываем обычную клавиатуру
+        ctx.reply('Обычная клавиатура скрыта.', {
+            reply_markup: Markup.removeKeyboard()
+        });
+        
 };
 // //! 🗓 FAQ
 const faqHandler = async (ctx) => {
