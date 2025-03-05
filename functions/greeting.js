@@ -3,6 +3,7 @@ const { Markup } = require('telegraf');
 // //! Приветственное сообщение и меню
 const greetingHandler = async (ctx) => {
     try {
+        await ctx.reply(Markup.removeKeyboard());
         await ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
             caption:
             'Салам алейкум, дорогой путешественник!👋\n\n' +
@@ -12,7 +13,7 @@ const greetingHandler = async (ctx) => {
         });
 
         // Отправляем клавиатуру отдельным сообщением
-        await ctx.reply('Выберите опцию:', Markup.keyboard([
+        await ctx.reply(Markup.keyboard([
             ['🌟 Экскурсии на 1 день'],
             ['✨ Многодневные туры'],
             ['🔙 Назад']
