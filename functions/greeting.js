@@ -4,7 +4,7 @@ const { Markup } = require('telegraf');
 const greetingHandler = async (ctx) => {
     try {
         await ctx.reply(Markup.removeKeyboard());
-        await ctx.replyWithPhoto('https://vk.com/photo-226855768_457239045', {
+        await ctx.replyWithPhoto('https://t.me/DagEagleTour/7', {
             caption:
             'Салам алейкум, дорогой путешественник!👋\n\n' +
             'Я — Тимур (от тюрк. "железо"), ваш виртуальный гид.🤖\n' +
