@@ -1,4 +1,4 @@
-// const { Telegraf } = require('telegraf');
+const { Telegraf } = require('telegraf');
 
 //! Обработчик вебхука
 // const handleWebhook = async (event) => {
