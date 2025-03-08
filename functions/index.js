@@ -29,12 +29,13 @@ bot.hears('💬 Часто задаваемые вопросы', faqHandler);
 bot.hears(['🔙 Назад','привет'], greetingHandler);
 bot.hears('🌟 Экскурсии на 1 день', excurses);
 bot.hears('✨ Многодневные туры', tours);
-bot.hears('Записаться','⬅ Назад', enterHandler);
+bot.hears('⬅ Назад', enterHandler);
 bot.hears('💰 Условия оплаты и бронирование', paymentTermsHandler);
 bot.hears('📌 Информация о туре', infoHandler);
 bot.hears('🖋 Даты туров', datesHandler);
 bot.hears('💰 Забронировать', bookingHandler);
 bot.hears('❓ Часто задаваемые вопросы', faqHandler2);
+bot.action('tour', enterHandler);
 
 
 
