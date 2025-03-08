@@ -21,4 +21,4 @@ const handleWebhook = async (event, context) => {
     }
 };
 
-module.exports = { handleWebhook };
+module.exports = { bot, handleWebhook };
