@@ -49,7 +49,7 @@ const datesPriceHandler = async (ctx) => {
 };
 // //! 🗓 FAQ
 const faqHandler = async (ctx) => {
-    try { await ctx.replyWithPhoto('https://vk.com/photo-226855768_457239051');
+    try { await ctx.replyWithPhoto('https://t.me/DagEagleTour/17');
     } catch (error) {
         console.error('Ошибка при загрузке фото:', error);
         await ctx.reply('Приветственное фото временно недоступно, но это не помешает нам начать! 😊');
@@ -57,7 +57,7 @@ const faqHandler = async (ctx) => {
 
     //? Markdown для кликабельной ссылки
     await ctx.replyWithMarkdown(
-        '❓ Часто задаваемые вопросы (FAQ)💬\n\n' +
+        '❓Часто задаваемые вопросы (FAQ)💬\n\n' +
         'Для вашего удобства мы собрали все вопросы в одной статье:\n' +
         '[Читать статью](https://telegra.ph/CHastye-voprosy-FAQ-03-03).',
         Markup.keyboard([
