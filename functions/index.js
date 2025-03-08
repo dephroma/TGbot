@@ -1,6 +1,7 @@
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
+exports.handler = async (event, context) => { return handleWebhook(event, context); };
 // const BOT_TOKEN = process.env.BOT_TOKEN;
 // const bot = new Telegraf(BOT_TOKEN);
 
@@ -27,7 +28,6 @@ const {
 
 const { handleWebhook } = require('./webhookHandler');
 
-exports.handler = async (event, context) => { return handleWebhook(event, context); };
 
 //! Обработчики кнопок и старт
 bot.start(greetingHandler);
