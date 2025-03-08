@@ -47,7 +47,7 @@ bot.on('text', async (ctx) => {
         
          if (/дат/i.test(text) || /цен/i.test(text)) {
             await datesPriceHandler(ctx);}
-         else if (/каталог/i.test(text) || /туры/i.test(text)) {
+         else if (/каталог/i.test(text) || /тур/i.test(text)) {
             await catalogHandler(ctx);}
         else if (/вопрос/i.test(text) || /спросить/i.test(text)) {
             await faqHandler(ctx);}
