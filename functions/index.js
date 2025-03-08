@@ -20,13 +20,12 @@ const { excurses, tours } = require('./products');
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
 
-//* Обработчик стартовой команды
 bot.start(greetingHandler);
 
+bot.hears(['🔙 Назад','привет', '📅 В главное меню'], greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
-bot.hears(['🔙 Назад','привет'], greetingHandler);
 bot.hears('🌟 Экскурсии на 1 день', excurses);
 bot.hears('✨ Многодневные туры', tours);
 bot.hears('⬅ Назад', enterHandler);
