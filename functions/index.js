@@ -1,8 +1,8 @@
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
-const BOT_TOKEN = process.env.BOT_TOKEN;
-const bot = new Telegraf(BOT_TOKEN);
+// const BOT_TOKEN = process.env.BOT_TOKEN;
+// const bot = new Telegraf(BOT_TOKEN);
 
 const {
     greetingHandler,
@@ -68,21 +68,21 @@ bot.on('text', async (ctx) => {
 
 // exports.handler = async (event, context) => {
 //     return handleWebhook(event); };
-//! Обработчик для webhook
-exports.handler = async (event, context) => {
-    const body = JSON.parse(event.body);  //* Получаем тело запроса
-    try {
-        console.log('Received webhook event:', body);  //* Логируем событие
-        await bot.handleUpdate(body);  //* Обрабатываем обновление через Telegraf
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: "Webhook processed successfully" })
-        };
-    } catch (error) {
-        console.error('Error handling webhook:', error);  //* Логируем ошибку
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ message: 'Error handling webhook' })
-        };
-    }
-};
+// //! Обработчик для webhook
+// exports.handler = async (event, context) => {
+//     const body = JSON.parse(event.body);  //* Получаем тело запроса
+//     try {
+//         console.log('Received webhook event:', body);  //* Логируем событие
+//         await bot.handleUpdate(body);  //* Обрабатываем обновление через Telegraf
+//         return {
+//             statusCode: 200,
+//             body: JSON.stringify({ message: "Webhook processed successfully" })
+//         };
+//     } catch (error) {
+//         console.error('Error handling webhook:', error);  //* Логируем ошибку
+//         return {
+//             statusCode: 500,
+//             body: JSON.stringify({ message: 'Error handling webhook' })
+//         };
+//     }
+// };

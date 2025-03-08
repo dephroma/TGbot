@@ -1,4 +1,6 @@
-const { Telegraf } = require('telegraf');
+// const { Telegraf } = require('telegraf');
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const bot = new Telegraf(BOT_TOKEN);
 
 //! Обработчик вебхука
 // const handleWebhook = async (event) => {
