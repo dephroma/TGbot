@@ -27,7 +27,7 @@ const {
 
 const { handleWebhook } = require('./webhookHandler');
 
-exports.handler = async (event, context) => { return handleWebhook(event); };
+exports.handler = async (event, context) => { return handleWebhook(event, context); };
 
 //! Обработчики кнопок и старт
 bot.start(greetingHandler);
