@@ -1,12 +1,16 @@
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const bot = new Telegraf(BOT_TOKEN);
+
 const {
     greetingHandler,
     catalogHandler,
     datesPriceHandler,
     faqHandler
 } = require('./greeting');
+
 const {
     enterHandler,
     paymentTermsHandler,
@@ -15,11 +19,12 @@ const {
     datesHandler,
     faqHandler2
 } = require('./booking');
-const { excurses, tours } = require('./products');
 
-const BOT_TOKEN = process.env.BOT_TOKEN;
-const bot = new Telegraf(BOT_TOKEN);
+const { 
+    excurses, tours 
+} = require('./catalog');
 
+//! Обработчики кнопок и старт
 bot.start(greetingHandler);
 
 bot.hears(['🔙 Назад','привет', '📅 В главное меню'], greetingHandler);
@@ -36,15 +41,13 @@ bot.hears('💰 Забронировать', bookingHandler);
 bot.hears('❓ Часто задаваемые вопросы', faqHandler2);
 bot.action('tour', enterHandler);
 
-
-
-//* Обработчик текстовых сообщений
+//! Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
     try {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
         
-         if (/дат/i.test(text) || /цен/i.test(text)) {
+         if (/дат/i.test(text) || /цен/i.test(text)) {   //*Regular expressions
             await datesPriceHandler(ctx);}
          else if (/каталог/i.test(text) || /тур/i.test(text)) {
             await catalogHandler(ctx);}
@@ -58,18 +61,18 @@ bot.on('text', async (ctx) => {
     }
 });
 
-//* Обработчик для webhook
+//! Обработчик для webhook
 exports.handler = async (event, context) => {
-    const body = JSON.parse(event.body);  // Получаем тело запроса
+    const body = JSON.parse(event.body);  //* Получаем тело запроса
     try {
-        console.log('Received webhook event:', body);  // Логируем событие
-        await bot.handleUpdate(body);  // Обрабатываем обновление через Telegraf
+        console.log('Received webhook event:', body);  //* Логируем событие
+        await bot.handleUpdate(body);  //* Обрабатываем обновление через Telegraf
         return {
             statusCode: 200,
             body: JSON.stringify({ message: "Webhook processed successfully" })
         };
     } catch (error) {
-        console.error('Error handling webhook:', error);  // Логируем ошибку
+        console.error('Error handling webhook:', error);  //* Логируем ошибку
         return {
             statusCode: 500,
             body: JSON.stringify({ message: 'Error handling webhook' })
