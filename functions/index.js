@@ -30,51 +30,39 @@ exports.handler = async (event, context) => { return handleWebhook(event, contex
 //! Обработчики кнопок и старт
 bot.start(greetingHandler);
 
-// bot.hears(['🔙 Назад', '📅 В главное меню'], greetingHandler);
-// bot.hears('📚 Каталог и бронирование', catalogHandler);
-// bot.hears('🗓 Даты и цены', datesPriceHandler);
-// bot.hears('💬 Часто задаваемые вопросы', faqHandler);
-// bot.hears('🌟 Экскурсии на 1 день', excurses);
-// bot.hears('✨ Многодневные туры', tours);
-// bot.hears('⬅ Назад', enterHandler);
-// bot.hears('💰 Условия оплаты и бронирование', paymentTermsHandler);
-// bot.hears('📌 Информация о туре', infoHandler);
-// bot.hears('🖋 Даты туров', datesHandler);
-// bot.hears('💰 Забронировать', bookingHandler);
-// bot.hears('❓ Часто задаваемые вопросы', faqHandler2);
-
-//* Объект с текстами и соответствующими обработчиками
-const triggers = {
-    // '🔙 Назад': greetingHandler,
-    // '📅 В главное меню': greetingHandler,
-    '🔙 Назад, 📅 В главное меню': greetingHandler,
-    '📚 Каталог и бронирование': catalogHandler,
-    '🗓 Даты и цены': datesPriceHandler,
-    '💬 Часто задаваемые вопросы': faqHandler,
-    '🌟 Экскурсии на 1 день': excurses,
-    '✨ Многодневные туры': tours,
-    '⬅ Назад': enterHandler,
-    '💰 Условия оплаты и бронирование': paymentTermsHandler,
-    '📌 Информация о туре': infoHandler,
-    '🖋 Даты туров': datesHandler,
-    '💰 Забронировать': bookingHandler,
-    '❓ Часто задаваемые вопросы': faqHandler2
-};
-
-//* Привязываем все обработчики с помощью цикла
-for (const [text, handler] of Object.entries(triggers)) {
-    bot.hears(text, handler);
-}
+bot.hears(['🔙 Назад', '📅 В главное меню'], greetingHandler);
+bot.hears('📚 Каталог и бронирование', catalogHandler);
+bot.hears('🗓 Даты и цены', datesPriceHandler);
+bot.hears('💬 Часто задаваемые вопросы', faqHandler);
+bot.hears('🌟 Экскурсии на 1 день', excurses);
+bot.hears('✨ Многодневные туры', tours);
+bot.hears('⬅ Назад', enterHandler);
+bot.hears('💰 Условия оплаты и бронирование', paymentTermsHandler);
+bot.hears('📌 Информация о туре', infoHandler);
+bot.hears('🖋 Даты туров', datesHandler);
+bot.hears('💰 Забронировать', bookingHandler);
+bot.hears('❓ Часто задаваемые вопросы', faqHandler2);
 
 bot.action('tour', enterHandler);
 
 //! Меню команд
 bot.telegram.setMyCommands([
-    { command: 'start', description: 'В начало' },
-    { command: 'catalog', description: 'Каталог' },
-    { command: 'faq', description: 'Частые вопросы' }
+    { command: 'catalog', description: '📚 Каталог' },
+    { command: 'faq', description: '❓ Частые вопросы' },
+    { command: 'start', description: '🏠︎ В начало' }
 ]);
 
+bot.command('start', (ctx) => {
+    greetingHandler(ctx);
+});
+
+bot.command('catalog', (ctx) => {
+    catalogHandler(ctx);
+});
+
+bot.command('faq', (ctx) => {
+    faqHandler(ctx);
+});
 
 //! Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
@@ -82,7 +70,7 @@ bot.on('text', async (ctx) => {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
     //?Regular expressions (регулярные выражения)
-        if (/привет/i.test(text) || /здравствуй/i.test(text)) {
+        if (/привет/i.test(text) || /здравствуй/i.test(text) || /меню/i.test(text)) {
             await greetingHandler(ctx);}
         else if (/дат/i.test(text) || /цен/i.test(text)) {
             await datesPriceHandler(ctx);}
