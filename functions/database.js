@@ -22,6 +22,5 @@ async function connectDB() {
     await client.close();
   }
 }
-run().catch(console.dir);
 
 module.exports = connectDB;
