@@ -30,7 +30,7 @@ exports.handler = async (event, context) => { return handleWebhook(event, contex
 //! Обработчики кнопок и старт
 bot.start(greetingHandler);
 
-bot.hears(['🔙 Назад','привет', '📅 В главное меню'], greetingHandler);
+bot.hears(['🔙 Назад', '📅 В главное меню'], greetingHandler);
 bot.hears('📚 Каталог и бронирование', catalogHandler);
 bot.hears('🗓 Даты и цены', datesPriceHandler);
 bot.hears('💬 Часто задаваемые вопросы', faqHandler);
@@ -44,15 +44,24 @@ bot.hears('💰 Забронировать', bookingHandler);
 bot.hears('❓ Часто задаваемые вопросы', faqHandler2);
 bot.action('tour', enterHandler);
 
+//! Меню команд
+bot.telegram.setMyCommands([
+    { command: 'start', description: 'В начало' },
+    { command: 'catalog', description: 'Каталог' },
+    { command: 'faq', description: 'Частые вопросы' }
+]);
+
 //! Обработчик текстовых сообщений
 bot.on('text', async (ctx) => {
     try {
         const text = ctx.message.text.trim().toLowerCase();
         console.log('Получено сообщение:', text);
-        
-         if (/дат/i.test(text) || /цен/i.test(text)) {   //*Regular expressions
+    //?Regular expressions (регулярные выражения)
+        if (/привет/i.test(text) || /здравствуй/i.test(text)) {
+            await greetingHandler(ctx);}
+        else if (/дат/i.test(text) || /цен/i.test(text)) {
             await datesPriceHandler(ctx);}
-         else if (/каталог/i.test(text) || /тур/i.test(text)) {
+        else if (/каталог/i.test(text) || /тур/i.test(text)) {
             await catalogHandler(ctx);}
         else if (/вопрос/i.test(text) || /спросить/i.test(text)) {
             await faqHandler(ctx);}
