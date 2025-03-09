@@ -49,7 +49,7 @@ const excurses = async (ctx) => {
                 {
                     reply_markup: Markup.inlineKeyboard([
                         [Markup.button.callback('Записаться', 'tour')]
-                    ])
+                    ]).reply_markup
                 }
             );
     
