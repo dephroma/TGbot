@@ -50,9 +50,9 @@ bot.action('tour', enterHandler);
 
 //! Меню команд
 bot.telegram.setMyCommands([
+    { command: 'start', description: '🏠︎ В начало' },
     { command: 'catalog', description: '📚 Каталог' },
-    { command: 'faq', description: '❓ Частые вопросы' },
-    { command: 'start', description: '🏠︎ В начало' }
+    { command: 'faq', description: '❓ Частые вопросы' }
 ]);
 
 bot.command('start', (ctx) => {
