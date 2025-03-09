@@ -1,4 +1,3 @@
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://rromann192:<Prevedmened192!>@cluster0.qdr3m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -25,4 +24,4 @@ async function run() {
 }
 run().catch(console.dir);
 
-module.exports = connectDB;
+module.exports = { connectDB };
