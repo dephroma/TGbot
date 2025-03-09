@@ -47,7 +47,7 @@ bot.start(greetingHandler);
 const triggers = {
     // '🔙 Назад': greetingHandler,
     // '📅 В главное меню': greetingHandler,
-    '🔙 Назад, 📅 В главное меню': 'greetingHandler',
+    '🔙 Назад, 📅 В главное меню': greetingHandler,
     '📚 Каталог и бронирование': catalogHandler,
     '🗓 Даты и цены': datesPriceHandler,
     '💬 Часто задаваемые вопросы': faqHandler,
