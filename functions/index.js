@@ -24,6 +24,9 @@ const {
     tours 
 } = require('./catalog');
 
+const connectDB = require('./database');
+
+connectDB(); //* Запускаем подключение к БД
 
 exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
