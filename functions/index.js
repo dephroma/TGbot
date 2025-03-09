@@ -26,7 +26,7 @@ const {
 
 const connectDB = require('./database');
 
-connectDB(); //* Запускаем подключение к БД
+connectDB(); //* Запускаем подключение к БД1
 
 exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
