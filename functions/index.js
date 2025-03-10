@@ -24,7 +24,8 @@ const {
     tours 
 } = require('./catalog');
 
-const connectDB = require('./database');
+const connectDB = require('./database');  // Подключение базы
+const User = require('./userModel');  // Импорт модели пользователя
 
 connectDB(); //* Запускаем подключение к БД1
 
