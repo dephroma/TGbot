@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = process.env.MONGO_URI;
+const uri = "mongodb+srv://rromann192:NhBswLUea4XHc3zH@cluster0.qdr3m.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster0";
 
 if (!uri) {
     console.error("Ошибка: строка подключения MONGO_URI не найдена!");
@@ -14,6 +14,7 @@ const client = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
+    
   }
 });
 
