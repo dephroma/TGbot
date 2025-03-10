@@ -1,6 +1,7 @@
 const { Markup } = require('telegraf');
 const mongoose = require('mongoose');
 const User = require('./userModel'); // Модель пользователя
+const { MongoClient } = require('mongodb');
 
 // //! Приветственное сообщение и меню \ 🔙 Назад
 const greetingHandler = async (ctx) => {
