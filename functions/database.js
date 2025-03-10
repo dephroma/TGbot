@@ -2,6 +2,12 @@ require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.MONGO_URI;
 
+if (!uri) {
+    console.error("Ошибка: строка подключения MONGO_URI не найдена!");
+  } else {
+    console.log("Строка подключения:", uri);
+  }
+
 //* Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
