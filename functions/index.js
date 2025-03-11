@@ -89,3 +89,5 @@ bot.on('text', async (ctx) => {
         console.error('Ошибка при обработке сообщения:', error);
     }
 });
+
+bot.launch();
