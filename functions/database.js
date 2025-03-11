@@ -65,7 +65,7 @@
 
 // module.exports = connectDB;
 
-
+const mongoose = require('mongoose');
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.MONGO_URI;
