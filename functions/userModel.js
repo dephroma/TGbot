@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    default: null, // null для отсутствующих данных
   },
   phoneNumber: {
     type: String,
-    required: true,
+    default: null, // null для отсутствующих данных
   },
   firstContactDate: {
     type: Date,
-    default: Date.now, // дата первого обращения
+    default: Date.now, // Дата первого обращения всегда записывается
   },
 });
 
