@@ -168,10 +168,7 @@ async function connectDB() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
     // Инициализация Mongoose
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(uri); // Убираем useNewUrlParser и useUnifiedTopology
     console.log("Connected to MongoDB using Mongoose");
 
     return client; // Возвращаем клиент для последующего закрытия
