@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null, // null для отсутствующих данных
   },
+  userId: {
+    type: Number, // ID пользователя Telegram
+    default: null, // null, если ID недоступен
+  },
   phoneNumber: {
     type: String,
     default: null, // null для отсутствующих данных
