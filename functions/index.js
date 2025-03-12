@@ -27,7 +27,30 @@ const {
 const connectDB = require('./database');  // Подключение базы
 const User = require('./userModel');  // Импорт модели пользователя
 
-connectDB(); //* Запускаем подключение к БД1
+// connectDB(); //* Запускаем подключение к БД1
+(async () => {
+    let client;
+    try {
+      // Подключаемся к базе данных
+      client = await connectDB();
+      console.log('База данных готова к работе.');
+  
+      // Выполняем операции с базой данных
+      const db = client.db("your-database-name");
+      const users = await db.collection("users").find({}).toArray();
+      console.log("Пользователи:", users);
+  
+    } catch (error) {
+      console.error('Не удалось подключиться к базе данных:', error.message);
+      process.exit(1); // Завершаем приложение в случае ошибки
+    } finally {
+      // Закрываем соединение
+      if (client) {
+        await client.close();
+        console.log("Соединение с MongoDB закрыто.");
+      }
+    }
+  })();
 
 exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
