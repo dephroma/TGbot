@@ -34,6 +34,7 @@ const User = require('./userModel');  // Импорт модели пользо�
 
 exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
+
 // connectDB(); //* Запускаем подключение к БД11
 (async () => {
     let client;
