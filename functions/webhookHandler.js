@@ -4,7 +4,6 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
 
 //! Обработчик вебхука
-bot.telegram.setWebhook('https://tgeagle.netlify.app/.netlify/functions/index');
 
 const handleWebhook = async (event, context) => {
     console.log("Получено событие:", event); // Логируем событие для отладки

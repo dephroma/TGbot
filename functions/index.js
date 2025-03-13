@@ -1,7 +1,7 @@
 console.log("Бот запускается...");
 async function run() {
     console.log("Запускаю бота...");
-    // Твой код бота тут
+
 
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
