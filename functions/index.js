@@ -27,7 +27,7 @@ const {
 const connectDB = require('./database');  // Подключение базы
 const User = require('./userModel');  // Импорт модели пользователя
 
-// connectDB(); //* Запускаем подключение к БД1
+connectDB(); //* Запускаем подключение к БД1
 (async () => {
     let client;
     try {
