@@ -124,8 +124,6 @@ bot.telegram.getMe().then(botInfo => {
     console.error("Ошибка подключения к Telegram:", err);
 });
 
-bot.launch();
-
 }
   
 run().catch(console.error);
