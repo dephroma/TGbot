@@ -7,4 +7,4 @@
   status = 200
 
   [dev]
-port = 3999
+port = 3000
