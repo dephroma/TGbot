@@ -3,7 +3,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 const bot = new Telegraf(BOT_TOKEN);
 
 //! Обработчик вебхука
-bot.telegram.setWebhook('https://tgeagle.netlify.app/webhook');
+bot.telegram.setWebhook('https://tgeagle.netlify.app/.netlify/functions/index');
 
 const handleWebhook = async (event, context) => {
     const body = JSON.parse(event.body); //* Получаем тело запроса
