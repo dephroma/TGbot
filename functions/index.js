@@ -1,3 +1,8 @@
+console.log("Бот запускается...");
+async function run() {
+    console.log("База данных отключена. Запускаю бота без БД...");
+    // Твой код бота тут
+
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
@@ -112,3 +117,14 @@ bot.on('text', async (ctx) => {
         console.error('Ошибка при обработке сообщения:', error);
     }
 });
+bot.telegram.getMe().then(botInfo => {
+    console.log("Бот подключился! Имя:", botInfo.username);
+}).catch(err => {
+    console.error("Ошибка подключения к Telegram:", err);
+});
+
+bot.launch();
+
+}
+  
+run().catch(console.error);
