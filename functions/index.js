@@ -1,6 +1,6 @@
 console.log("Бот запускается...");
 async function run() {
-    console.log("База данных отключена. Запускаю бота без БД...");
+    console.log("Запускаю бота...");
     // Твой код бота тут
 
 const { Telegraf, Markup } = require('telegraf');
@@ -35,7 +35,7 @@ const User = require('./userModel');  // Импорт модели пользо�
 exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
 
-// connectDB(); //* Запускаем подключение к БД11
+connectDB(); //* Запускаем подключение к БД11
 (async () => {
     let client;
     try {
@@ -44,7 +44,7 @@ exports.handler = async (event, context) => { return handleWebhook(event, contex
       console.log('База данных готова к работе.');
   
       // Выполняем операции с базой данных
-      const db = client.db("your-database-name");
+      const db = client.db("sample_mflix");
       const users = await db.collection("users").find({}).toArray();
       console.log("Пользователи:", users);
   
