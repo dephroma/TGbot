@@ -87,36 +87,36 @@ const {
     tours 
 } = require('./catalog');
 
-const connectDB = require('./database');  // Подключение базы
-const User = require('./userModel');  // Импорт модели пользователя
+// const connectDB = require('./database');  // Подключение базы
+// const User = require('./userModel');  // Импорт модели пользователя
 
 // exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
 
-connectDB(); //* Запускаем подключение к БД11
-(async () => {
-    let client;
-    try {
-      // Подключаемся к базе данных
-      client = await connectDB();
-      console.log('База данных готова к работе.');
+// connectDB(); //* Запускаем подключение к БД11
+// (async () => {
+//     let client;
+//     try {
+//       // Подключаемся к базе данных
+//       client = await connectDB();
+//       console.log('База данных готова к работе.');
   
-      // Выполняем операции с базой данных
-      const db = client.db("sample_mflix");
-      const users = await db.collection("users").find({}).toArray();
-      console.log("Пользователи:", users);
+//       // Выполняем операции с базой данных
+//       const db = client.db("sample_mflix");
+//       const users = await db.collection("users").find({}).toArray();
+//       console.log("Пользователи:", users);
   
-    } catch (error) {
-      console.error('Не удалось подключиться к базе данных:', error.message);
-      process.exit(1); // Завершаем приложение в случае ошибки
-    } finally {
-      // Закрываем соединение
-      if (client) {
-        await client.close();
-        console.log("Соединение с MongoDB закрыто.");
-      }
-    }
-})();
+//     } catch (error) {
+//       console.error('Не удалось подключиться к базе данных:', error.message);
+//       process.exit(1); // Завершаем приложение в случае ошибки
+//     } finally {
+//       // Закрываем соединение
+//       if (client) {
+//         await client.close();
+//         console.log("Соединение с MongoDB закрыто.");
+//       }
+//     }
+// })();
 
 //! Обработчики кнопок и старт
 bot.start(greetingHandler);
