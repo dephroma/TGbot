@@ -21,12 +21,12 @@ const bot = new Telegraf(BOT_TOKEN);
 console.log("Bot initialized successfully");
 
 // URL вебхука
-const WEBHOOK_URL = 'https://tgeagle.netlify.app/.netlify/functions/index';
+// const WEBHOOK_URL = 'https://tgeagle.netlify.app/.netlify/functions/index';
 
-// Установка вебхука
-bot.telegram.setWebhook(WEBHOOK_URL)
-    .then(() => console.log("Webhook установлен успешно"))
-    .catch(err => console.error("Ошибка при установке вебхука:", err));
+// // Установка вебхука
+// bot.telegram.setWebhook(WEBHOOK_URL)
+//     .then(() => console.log("Webhook установлен успешно"))
+//     .catch(err => console.error("Ошибка при установке вебхука:", err));
 
 // // Обработчик команды /start
 // bot.start((ctx) => {
@@ -90,7 +90,7 @@ const {
 const connectDB = require('./database');  // Подключение базы
 const User = require('./userModel');  // Импорт модели пользователя
 
-// exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
+exports.handler = async (event, context) => { return handleWebhook(event, context); };   //* Вызываем обработчик webhook
 
 
 connectDB(); //* Запускаем подключение к БД11
