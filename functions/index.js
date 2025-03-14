@@ -6,7 +6,7 @@ async function run() {
 const { Telegraf, Markup } = require('telegraf');
 require('dotenv').config();
 
-// const { bot, handleWebhook } = require('./webhookHandler');
+const { bot, handleWebhook } = require('./webhookHandler');
 
 
 // Загрузка токена из переменных окружения
