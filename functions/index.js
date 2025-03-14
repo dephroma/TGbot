@@ -17,7 +17,7 @@ if (!BOT_TOKEN) {
 }
 
 // Инициализация бота
-const bot = new Telegraf(BOT_TOKEN);
+// const bot = new Telegraf(BOT_TOKEN);
 console.log("Bot initialized successfully");
 
 // URL вебхука
